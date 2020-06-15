@@ -29,7 +29,7 @@
           Email
         </th>
         <th>
-          Group
+          Role
         </th>
         <th class="text-right">
           Control
@@ -48,7 +48,7 @@
             {{$row->email}}
         </td>
         <td>
-          {{$row->group}}
+          {{$row->role}}
       </td>
         <td class="td-actions text-right">
            @include('back-end.shared.buttons.edit')

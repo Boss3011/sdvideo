@@ -21,9 +21,11 @@
   <link href="/frontend/css/paper-kit.css?v=2.2.0" rel="stylesheet" />
   <!-- CSS Just for demo purpose, don't include it in your project -->
   <link href="/frontend/demo/demo.css" rel="stylesheet" />
+  <link href="/frontend/css/pagination.css" rel="stylesheet" />
+  @stack('css')
 </head>
 
-<body class="index-page sidebar-collapse">
+<body class="index-page sidebar-collapse  section-dark" >
   <!-- Navbar -->
   @include('layouts.nav')
   @yield('content')

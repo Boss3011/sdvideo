@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\Backend;
+namespace App\Http\Controllers\BackEnd;
 
 use App\Http\Requests\BackEnd\Pages\Store;
 use App\Models\Page;
 
 
-class Pages extends BackEndController
+class Pages extends \App\Http\Controllers\BackEnd\BackEndController
 {
     public function __construct(Page $model)
     {

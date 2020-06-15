@@ -1,16 +1,18 @@
 <?php
 
-namespace App\Http\Controllers\Backend;
+namespace App\Http\Controllers\BackEnd;
 use App\Http\Requests\BackEnd\categories\Store;
 use App\Models\Category;
+use Illuminate\Http\Request;
+use App\Http\Middleware\Admin;
 
-class Categories extends BackEndController
+  class Categories extends \App\Http\Controllers\BackEnd\BackEndController
 {
-    public function __construct(Category $model)
-    {
-      parent::__construct($model);
-    }
-    
+  public function __construct(Category $model)
+  {
+    parent::__construct($model);
+  }
+  
   
   
     public function store(Store $request){

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Backend;
+namespace App\Http\Controllers\BackEnd;
 
 use App\Http\Requests\BackEnd\Videos\Store;
 use App\Http\Requests\BackEnd\Videos\Update;
@@ -10,11 +10,12 @@ use App\Models\Category;
 use App\Models\Myvideo;
 use App\Models\Tag;
 use App\Models\Comments;
+use Validator;
 
 
 
 
-class Videos extends  BackEndController
+class Videos extends  \App\Http\Controllers\BackEnd\BackEndController
 {
     use CommentTrait;
         public function __construct(Video $model)
@@ -46,7 +47,7 @@ class Videos extends  BackEndController
       return $array;
     }
  
-      
+  
     public function store(Store $request){
       $fileName = $this->uploadImage($request); 
       $requestArray = ['user_id'=>auth()->user()->id,'image'=>$fileName] + $request->all() ;
@@ -56,18 +57,20 @@ class Videos extends  BackEndController
     
     }
       
+
         public function update($id,Update $request ){
-            $requestArray=$request->all();
-            if($request->hasFile('image')){
-              $fileName = $this->uploadImage($request); 
-              $requestArray=['image'=>$fileName]+$requestArray;
-            }
-            $row=$this->model->FindOrFail($id);
-            $row->update($requestArray);
-            $this->syncTagsMyvideos($row,$requestArray);
-           
-          return redirect()->route('videos.edit',['id'=>$row->id]);
-        }
+          $requestArray=$request->all();
+          if($request->hasFile('image')){
+            $fileName = $this->uploadImage($request); 
+            $requestArray=['image'=>$fileName]+$requestArray;
+          }
+          $row=$this->model->FindOrFail($id);
+          $row->update($requestArray);
+          $this->syncTagsMyvideos($row,$requestArray);
+         
+        return redirect()->route('videos.edit',['id'=>$row->id]);
+      }
+
         protected function syncTagsMyvideos($row,$requestArray){
           if(isset($requestArray['myvideos']) && !empty($requestArray['myvideos'])){
             $row->myvideos()->sync($requestArray['myvideos']);
@@ -77,9 +80,9 @@ class Videos extends  BackEndController
           }
         }
         protected function uploadImage($request){
-              $file=$request->file('image');
+          $file=$request->file('image');
               $fileName=time().str_random('10').'.'.$file->getClientOriginalExtension();
               $file->move(public_path('uploads'),$fileName);
               return $fileName;
-        }
+    }
 }

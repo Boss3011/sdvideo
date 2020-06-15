@@ -14,6 +14,7 @@ use App\Http\Requests\FrontEnd\Comments\Store;
 use App\Http\Requests\FrontEnd\Messages\Stores;
 use App\Http\Requests\FrontEnd\Users\Ustore;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\DB;
 
 
 
@@ -43,17 +44,18 @@ class HomeController extends Controller
         $videos=$videos->published()->where('name','like',"%".request()->get('search')."%");
     }
 
-        $videos= $videos->paginate(30);
+        $videos= $videos->paginate(3);
         return view('home',compact('videos'));
     }
     public function category($id){
         $cat=Category::findOrFail($id);
-        $videos = Video::published()->where('cat_id',$id)->orderBy('id','desc')->paginate(30);
+        $videos = Video::published()->where('cat_id',$id)->orderBy('id','desc')->paginate(3);
         return view('front-end.category.index',compact('videos','cat'));
     }
     public function video($id){
+        $videos=Video::published()->orderBy('id','desc')->paginate(3);
         $video=Video::published()->with('myvideos','tags','cat','user','comments.user')->findOrFail($id);
-        return view('front-end.video.index',compact('video'));
+        return view('front-end.video.index',compact('video','videos'));
     }
     public function myvideos($id){
         $myvideo=Myvideo::findOrFail($id);
@@ -90,12 +92,22 @@ class HomeController extends Controller
         Message::create($request->all());
         return redirect()->route('frontend.landing');
     }
-    public function welcome(){
-        $videos=Video::published()->orderBy('id','desc')->paginate(9);
+    public function welcome1(){
+        $videos=Video::published()->orderBy('name','desc')->paginate(30);
         $videos_count=Video::published()->count();
         $comments_count=Comments::count();
         $tags_count=Tag::count();
         return view('welcome',compact('videos','tags_count','comments_count','videos_count'));
+    }
+    public function  welcome()
+    {
+        $videos = Video::orderBy('id','desc');
+        if(request()->has('search') && request()->get('search')!=''){
+        $videos=$videos->published()->where('name','like',"%".request()->get('search')."%");
+    }
+
+        $videos= $videos->paginate(3);
+        return view('welcome',compact('videos'));
     }
      public function profile($id ,$slug = null)
     {

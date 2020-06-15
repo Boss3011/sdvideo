@@ -32,6 +32,7 @@ class Store extends FormRequest
             'cat_id' => ['required'],
             'published' => ['required'],
             'image' => ['required','image'],
+        
            
         ];
     }

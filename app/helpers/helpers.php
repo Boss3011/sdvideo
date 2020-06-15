@@ -7,8 +7,8 @@ function is_active(string $routeName){
     return null !== request()->segment(2)&&request()->segment(2)==$routeName ? 'active':'';
 
 }
-function getYoutubeId($url){
-    preg_match('%(?:youtube(?:-nocookie)?\.com/(?:[^/]+/.+/|(?:v|e(?:mbed)?)/|.*[?&]v=)|youtu\.be/)([^"&?/\s]{11})%i', $url, $match);
+function getVideoId($url){
+    preg_match("/(https?:\/\/)?(www\.)?(player\.)?vimeo\.com\/([a-z]*\/)*([0-9]{6,11})[?]?.*/", $url, $match);
     return isset($match[1]) ? $match[1] : null; 
 }
 function slug(string $name){

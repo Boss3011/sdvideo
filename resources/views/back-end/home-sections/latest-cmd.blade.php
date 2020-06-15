@@ -20,13 +20,18 @@
                 <tr>
                     <td>{{$comment->id}}</td>
                     <td>
+                      @if( $comment->user != null )
                         <a href="{{route('users.edit',['id'=>$comment->user->id])}}">
                         {{$comment->user->name}}
                         </a>
+                        @endif
                     </td>
                     <td>
+                      @if( $comment->video != null )
                         <a href="{{route('videos.edit',['id'=>$comment->video->id])}}">
                         {{$comment->video->name}}
+                        </a>
+                        @endif
                     </td>
                     <td>{{$comment->comment}}</td>
                     <td>{{$comment->created_at}}</td>

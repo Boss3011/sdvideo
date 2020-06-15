@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\Backend;
+namespace App\Http\Controllers\BackEnd;
 
 use App\Http\Requests\BackEnd\Tags\Store;
 use App\Models\Tag;
 
 
-class Tags extends BackEndController
+class Tags extends \App\Http\Controllers\BackEnd\BackEndController
 {
     public function __construct(Tag $model)
     {

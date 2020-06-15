@@ -18,7 +18,7 @@ class Admin
         if(auth()->guest()){
             return redirect('/login');
         }
-        if(auth()->user()->group !='admin'){
+        if(auth()->user()->role !='admin'){
             return redirect('/');
         }
         return $next($request);

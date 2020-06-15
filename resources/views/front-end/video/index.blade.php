@@ -3,27 +3,22 @@
 @section('meta_keywords',$video->meta_keywords)
 @section('meta_des',$video->meta_des)
 @section('content')
-<div class="section section-buttons">
+<div class="section section-buttons section-dark">
   <div class="container">
    <div class="title">
-       <h2>{{$video->name}}</h2>
+       <h2 style="color: white">{{$video->name}}</h2>
    </div>
    <div class="row">
      <div class="col-md-12">
-   @php
-      $url=getYoutubeId($video->youtube)
-   @endphp
-   @if($url)
-   <iframe width="100%" height="500" src="https://www.youtube.com/embed/{{$url}}" style="margin-bottom:20px " frameborder="0" allowfullscreen></iframe>
+    <iframe width="100%" height="500"  src="{{url($video->youtube)}}" style="margin-bottom:20px " frameborder="0" allowfullscreen></iframe>
    <br>
-   @endif
      </div>
    </div>
-   <div class="row">
-    <div class="col-md-6" >
+   <div class="row" style="color: white">
+    <div class="col-md-6" style="color: white" >
       <p>
-        <span style="margin-right: 20px">
-          <i class="nc-icon nc-user-run"></i> : {{$video->user->name}}
+        <span style="margin-right: 20px" style="color: white">
+          <i class="nc-icon nc-user-run" style="color: white"></i> : {{$video->user->name}} 
         </span>
         <span style="margin-right: 20px">
           <i class="nc-icon nc-paper"></i> : {{$video->created_at}}
@@ -36,7 +31,7 @@
       </p>
       <p>{{$video->des}}</p>
       </div>
-   <div class="col-md-3">
+   <div class="col-md-3" style="color: white">
      <h6>Tags</h6>
       <p>
         @foreach ($video->tags as $tag)
@@ -60,6 +55,16 @@
    <br><br>
    @include('front-end.video.comments')
    @include('front-end.video.create-cmd')
+   <br><br>
+   @include('front-end.shared.video-row')
+   @include('front-end.home-page-sections.theme')
+   <div class="row">
+    <div class="col-lg-12">   
+       {{$videos->links()}}
+    </div> 
+   </div>
+   @include('front-end.home-page-sections.theme')
+ </div>
   </div>
 </div>
 @endsection

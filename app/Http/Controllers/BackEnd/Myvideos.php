@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\Backend;
+namespace App\Http\Controllers\BackEnd;
 
 use App\Http\Requests\BackEnd\Myvideos\Store;
 use App\Models\Myvideo;
 
 
-class Myvideos extends BackEndController
+class Myvideos extends \App\Http\Controllers\BackEnd\BackEndController
 {
 
     public function __construct(Myvideo $model)

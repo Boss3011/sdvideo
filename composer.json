@@ -41,7 +41,8 @@
             "database/factories"
         ],
         "files": [
-            "app/helpers/helpers.php"
+            "app/helpers/helpers.php",
+            "app/Http/Controllers/Backend/BackEndController.php"
         ]
 
     },

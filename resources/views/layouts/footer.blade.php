@@ -1,16 +1,16 @@
-<footer class="footer footer-black  footer-white ">
+<footer class="footer footer-black  section-dark footer-white ">
     <div class="container">
       <div class="row">
         <nav class="footer-nav">
           <ul>
             <li>
-              <a href="http://www.soarlogic.com/" target="_blank">Soar Logic</a>
+              <a href="http://www.soarlogic.com/" target="_blank" style="color: white">Soar Logic</a>
             </li>
             <li>
-              <a href="https://soarlogic.wordpress.com/" target="_blank">Blog</a>
+              <a href="https://soarlogic.wordpress.com/" target="_blank" style="color: white">Blog</a>
             </li>
             <li>
-              <a href="http://www.soarlogic.com/" target="_blank">Licenses</a>
+              <a href="http://www.soarlogic.com/" target="_blank" style="color: white">Licenses</a>
             </li>
           </ul>
         </nav>

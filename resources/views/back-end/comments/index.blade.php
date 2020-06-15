@@ -3,9 +3,11 @@
         @foreach ($comments as $comment)
       <tr>
         <td>
+          @if( $comment->user != null )
         <small>{{$comment->user->name}}</small>
         <p>{{$comment->comment}}</p>
         <small>{{$comment->created_at}}</small>
+        @endif
         </td>
         <td class="td-actions text-right">
             <button type="button" rel="tooltip" title="" onclick="$(this).closest('tr').next('tr').slideToggle()" class="btn btn-primary btn-link btn-sm" data-original-title="Edit comment">

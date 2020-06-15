@@ -16,14 +16,9 @@
       <div class="clearfix"></div>
     </form>
     @slot('md4')
-    @php
-        $url=getYoutubeId($row->youtube)
-    @endphp
-    @if($url)
-    <iframe width="250"  src="https://www.youtube.com/embed/{{$url}}" style="margin-bottom:20px " frameborder="0" allowfullscreen></iframe>
-    <br>
-   @endif
-   <img src="{{url('uploads/'.$row->image)}}" width="250">
+  <iframe width="250"  src="{{url($row->youtube)}}" style="margin-bottom:20px " frameborder="0" allowfullscreen></iframe>
+ <br>
+    <img src="{{url('uploads/'.$row->image)}}" width="250">
     @endslot
 @endcomponent
 

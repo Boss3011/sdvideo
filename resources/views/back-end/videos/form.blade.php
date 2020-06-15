@@ -29,27 +29,27 @@ $input="meta_keywords";
     </div>
   </div>
   @php
-$input="image";    
-@endphp
-  <div class="col-md-6">
-    <div>
-      <label>Video image</label>
+  $input="image";    
+  @endphp
+    <div class="col-md-6">
       <div>
-      <input type="file"  name={{$input}} >
-      @error($input)
-      <span class="invalid-feedback" role="alert">
-          <strong>{{ $message }}</strong>
-      </span>
-     @enderror
+        <label>Video image</label>
+        <div>
+        <input type="file"  name={{$input}} >
+        @error($input)
+        <span class="invalid-feedback" role="alert">
+            <strong>{{ $message }}</strong>
+        </span>
+       @enderror
+      </div>
     </div>
   </div>
-</div>
   @php
 $input="youtube";    
 @endphp
   <div class="col-md-6">
     <div class="form-group bmd-form-group">
-      <label class="bmd-label-floating">Youtube url</label>
+      <label class="bmd-label-floating">Video url</label>
       <input type="url"  name={{$input}} value="{{isset($row) ? $row->{$input}:''}}" class="form-control  @error($input) is-invalid @enderror">
       @error($input)
       <span class="invalid-feedback" role="alert">

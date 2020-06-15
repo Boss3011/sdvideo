@@ -1,8 +1,7 @@
 @extends('layouts.app')
 @section('title',$user->name)
 @section('content')
-
-<div class="section profile-content" style="margin-top: 190px">
+<div class="section profile-content  section-dark" style="margin-top: 190px">
     <div class="container">
       <div class="owner">
         <div class="avatar">
@@ -19,11 +18,12 @@
       <br>
       <div class="row">
         <div class="col-md-6 ml-auto mr-auto text-center">
-          <btn onclick="$('#profileCard').slideToggle(1000)" class="btn btn-outline-default btn-round"><i class="fa fa-cog"></i> Update Profile</btn>
+          <btn onclick="$('#profileCard').slideToggle(1000)" class="btn btn-danger  btn-round"><i class="fa fa-cog"></i> Update Profile</btn>
         </div>
       </div>
       @include('front-end.profile.edit')
       @endif
+      @include('front-end.home-page-sections.theme')
     </div>
   </div>
 @endsection

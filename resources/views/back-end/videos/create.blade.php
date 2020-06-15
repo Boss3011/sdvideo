@@ -10,7 +10,7 @@
 @endslot
 @endcomponent   
 @component('back-end.shared.create',['pageTitle'=>$pageTitle,'pageDes'=>$pageDes])
-<form action="{{route($routeName.'.store')}}" method="POST">
+<form action="{{route($routeName.'.store')}}" method="POST" enctype="multipart/form-data">
   @include('back-end.'.$folderName.'.form')
   <button type="submit" class="btn btn-primary pull-right">Add {{$moduleName}}</button>
   <div class="clearfix"></div>

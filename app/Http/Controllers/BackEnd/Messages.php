@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\Backend;
+namespace App\Http\Controllers\BackEnd;
 use App\Http\Requests\BackEnd\Messages\Store;
 use App\Models\Message;
 use App\Mail\ReplyContact;
 use Illuminate\Support\Facades\Mail;
 
-class Messages extends BackEndController
+class Messages extends \App\Http\Controllers\BackEnd\BackEndController
 {
     public function __construct(Message $model){
         parent::__construct($model);

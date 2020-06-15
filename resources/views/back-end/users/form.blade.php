@@ -41,7 +41,7 @@ $input="email";
     </div>
   </div>
   @php
-  $input="group";    
+  $input="role";    
   @endphp
     <div class="col-md-6">
       <div class="form-group bmd-form-group">
